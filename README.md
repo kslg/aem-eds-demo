@@ -1,9 +1,13 @@
-# Your Project's Title...
-Your project's description...
+# AEM / EDS Demo
+
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.aem.page/
-- Live: https://main--{repo}--{owner}.aem.live/
+- Preview: https://main--aem-eds-demo--kslg.aem.page/
+- Live: Live: https://main--aem-eds-demo--kslg.aem.live/
+
+## Admin Tools
+
+https://tools.aem.live/bot/setup?user=kslg257%40gmail.com&site=aem-eds-demo&url=https%3A%2F%2Fcontent.da.live%2Fkslg%2Faem-eds-demo%2F&org=kslg
 
 ## Documentation
 
@@ -12,6 +16,12 @@ Before using the aem-boilerplate, we recommand you to go through the documentati
 2. [The Anatomy of a Project](https://www.aem.live/developer/anatomy-of-a-project)
 3. [Web Performance](https://www.aem.live/developer/keeping-it-100)
 4. [Markup, Sections, Blocks, and Auto Blocking](https://www.aem.live/developer/markup-sections-blocks)
+
+## Resources
+
+1. [AEM Discord](https://discord.com/channels/1131492224371277874/@home)
+2. [AEM Sidekick](https://www.aem.live/docs/sidekick)
+
 
 ## Installation
 
