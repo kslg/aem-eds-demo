@@ -145,3 +145,111 @@ async function loadPage() {
 }
 
 loadPage();
+
+// 90s Sports Cars Interactive Features
+// Add this to your existing scripts.js after loadPage() call
+
+// Wait for DOM to be ready
+function init90sSportsCars() {
+  // Animated Counter for Stats
+  function animateCounter(element) {
+    const target = parseInt(element.dataset.target);
+    const duration = 2000;
+    const increment = target / (duration / 16);
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        element.textContent = target;
+        clearInterval(timer);
+      } else {
+        element.textContent = Math.floor(current);
+      }
+    }, 16);
+  }
+
+  // Intersection Observer for Stats Animation
+  const statsCounter = document.querySelector('.stats-counter');
+  if (statsCounter) {
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counters = entry.target.querySelectorAll('.stat-number');
+          counters.forEach(counter => animateCounter(counter));
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    statsObserver.observe(statsCounter);
+  }
+
+  // Filter Functionality
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.cards [data-category]');
+
+  if (filterBtns.length > 0 && cards.length > 0) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        
+        // Update active button
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Filter cards with animation
+        cards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'scale(1)';
+            }, 10);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.8)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+
+    // Initialize card animations
+    cards.forEach(card => {
+      card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    });
+  }
+
+  // Add scroll-triggered animations for sections
+  const sections = document.querySelectorAll('.section');
+  if (sections.length > 0) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(20px)';
+      section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      sectionObserver.observe(section);
+    });
+  }
+
+  // Log initialization
+  console.log('90s Sports Cars features initialized');
+}
+
+// Initialize when DOM is loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init90sSportsCars);
+} else {
+  init90sSportsCars();
+}
