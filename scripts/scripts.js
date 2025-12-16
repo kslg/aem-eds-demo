@@ -145,26 +145,3 @@ async function loadPage() {
 }
 
 loadPage();
-
-// 90s Sports Cars Interactive Features
-// Add this to your existing scripts.js after loadPage() call
-
-// gallery.js
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".gallery img").forEach(img => {
-    img.addEventListener("click", () => {
-      alert("Selected: " + img.alt);
-    });
-  });
-});
-
-// tabs.js
-document.addEventListener("DOMContentLoaded", () => {
-  const tabs = document.querySelectorAll(".tabs .tab");
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      tabs.forEach(t => t.classList.remove("active"));
-      tab.classList.add("active");
-    });
-  });
-});
