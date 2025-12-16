@@ -258,8 +258,8 @@ main .section.highlight {
 }
 
 /* section metadata */
-.page-90s-sports-cars main .section.highlight {
-  background-color: red;
+.page-90s-sports-cars {
+  background-color: rgba(15, 221, 28, 0.56);
   margin: 0;
   padding: 40px 0;
 }
