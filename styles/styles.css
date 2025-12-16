@@ -251,15 +251,14 @@ main > .section:first-of-type {
 /* section metadata */
 main .section.light,
 main .section.highlight {
-  /* background-color: var(--light-color); */
-  /* background-color: red; */
+  background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
 }
 
 /* section metadata */
 .page-90s-sports-cars {
-  background-color: rgba(15, 221, 28, 0.56);
+  background-color: #0CF25D;
   margin: 0;
   padding: 40px 0;
 }
